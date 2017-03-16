@@ -1,0 +1,4 @@
+<?jelly escape-by-default='true'?>
+<div>
+  This plugin makes it possible to rename a file in a ftp server.
+</div>
