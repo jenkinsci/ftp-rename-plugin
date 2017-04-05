@@ -14,7 +14,7 @@
 	<packaging>hpi</packaging>
 	<name>FTP Rename Plugin</name>
 	<description>Allows users to rename files remotely in ftp server</description>
-	<url>https://wiki.jenkins-ci.org/display/JENKINS/FTP+Rename</url>
+	<url>https://wiki.jenkins-ci.org/display/JENKINS/Ftp+Rename+Plugin</url>
 	<licenses>
 		<license>
 			<name>MIT License</name>
