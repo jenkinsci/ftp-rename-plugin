@@ -49,19 +49,18 @@ public class FtpRenameTest {
 		String value = "${}";
 		assertEquals(value, gblEnv.replaceGlobalVars(value, prop.getEnvVars()));
 	}
-	/*
+	
 	@Test
-	public void testChangeRemoteDirectory() {		
-		assertTrue(ftpHandler.openConnection("", 21, "", "", true));
-		assertTrue(ftpHandler.changeDirectory("/content/Controls/TextButtonX"));
+	public void testChangeRemoteDirectory() {
+		assertTrue(ftpHandler.openConnection("ftp.dlptest.com", 21, "dlpuser@dlptest.com", "eiTqR7EMZD5zy7M", true));
+		assertTrue(ftpHandler.changeDirectory("/control"));
         assertTrue(ftpHandler.closeConnection());		    
 	}
 	@Test
-	public void testRenameFile() {    		
-		assertTrue(ftpHandler.openConnection("", 21, "", "", true));
-		assertTrue(ftpHandler.changeDirectory("/content/Controls/TextButtonX/"));
-        assertTrue(ftpHandler.renameFtpFile("TextButtonX.ocx", "TextButtonX_New.ocx", "/content/Controls/TextButtonX/"));
+	public void testRenameFile() {
+		assertTrue(ftpHandler.openConnection("ftp.dlptest.com", 21, "dlpuser@dlptest.com", "eiTqR7EMZD5zy7M", true));
+		assertTrue(ftpHandler.changeDirectory("/control/"));
+        assertTrue(ftpHandler.renameFtpFile("control.ocx", "control_New.ocx", "/control/"));
         assertTrue(ftpHandler.closeConnection());
 	}
-	*/
 }
