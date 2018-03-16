@@ -1,8 +1,15 @@
 package org.jenkinsci.plugins.ftpRename;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+
 import org.apache.commons.io.FilenameUtils;
+import org.apache.commons.net.ftp.FTP;
 import org.apache.commons.net.ftp.FTPClient;
+import org.apache.commons.net.ftp.FTPFile;
 import org.apache.commons.net.ftp.FTPReply;
 public class FtpHandler {
     private FTPClient ftp;
@@ -74,7 +81,49 @@ public class FtpHandler {
         }
 		return false;
     }
+    
+    public boolean uploadFile(File localFile, String remoteFile) {
+    	boolean completed = false;
+    	try {
+        	ftp.setFileType(FTP.BINARY_FILE_TYPE);
+        	InputStream inputStream = new FileInputStream(localFile);
+        	OutputStream outputStream = ftp.storeFileStream(remoteFile);
+        	byte[] bytesIn = new byte[4096];
+        	int read = 0;
+        	while ((read = inputStream.read(bytesIn)) != -1) {
+        	    outputStream.write(bytesIn, 0, read);
+        	}
+        	inputStream.close();
+        	outputStream.close();
 
+        	completed = ftp.completePendingCommand();
+    	}
+    	catch(Exception e) {
+    		return false;	
+    	}   
+    	//The file was uploaded successfully.
+    	if (completed) return true;
+    	else return false;
+    }
+    public long getFileSize(String remoteFile) {
+	   long fileSize = 0;
+	   try {
+		   FTPFile[] files = ftp.listFiles(); //ftp list
+		   for ( int i = 0; i < files.length; i++)
+		   { //ftp connect forder in files              
+		      if (remoteFile.equals(files[i].getName()))
+		      { 
+		        fileSize = files[i].getSize();
+		        return fileSize;
+		      }
+		   }
+	   }
+	   catch(IOException e) {
+		   return fileSize;
+	   }
+
+	   return fileSize;
+    }
     /**
      * Rename file Method.
      *

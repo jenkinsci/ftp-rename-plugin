@@ -1,5 +1,7 @@
 package org.jenkinsci.plugins.ftpRename;
 import static org.junit.Assert.*;
+
+import java.io.File;
 import java.io.IOException;
 import org.junit.Test;
 import hudson.EnvVars;
@@ -38,7 +40,7 @@ public class FtpRenameTest {
 
 	@Test
 	public void testMissingVariable() throws IOException {
-		addVariable("globalKey", "globalValue");
+	 	addVariable("globalKey", "globalValue");
 		String value = "${wrong Global Key}";
 		assertEquals(value, gblEnv.replaceGlobalVars(value, prop.getEnvVars()));
 	}
@@ -53,14 +55,29 @@ public class FtpRenameTest {
 	@Test
 	public void testChangeRemoteDirectory() {
 		assertTrue(ftpHandler.openConnection("ftp.dlptest.com", 21, "dlpuser@dlptest.com", "eiTqR7EMZD5zy7M", true));
-		assertTrue(ftpHandler.changeDirectory("/control"));
+		assertTrue(ftpHandler.changeDirectory("/"));
         assertTrue(ftpHandler.closeConnection());		    
 	}
 	@Test
+	/**
+	 * Public FTP test site info is below and can be used to upload test DLP files. 
+     * The files will only be stored for 5 minutes before being deleted.
+     * https://dlptest.com/ftp-test/
+	 */
 	public void testRenameFile() {
-		assertTrue(ftpHandler.openConnection("ftp.dlptest.com", 21, "dlpuser@dlptest.com", "eiTqR7EMZD5zy7M", true));
-		assertTrue(ftpHandler.changeDirectory("/control/"));
-        assertTrue(ftpHandler.renameFtpFile("control.ocx", "control_New.ocx", "/control/"));
+		assertTrue(ftpHandler.openConnection("ftp.dlptest.com", 21, "dlpuser@dlptest.com", "eiTqR7EMZD5zy7M", true));		    	
+		assertTrue(ftpHandler.changeDirectory("/"));
+		
+		FileHandler tempFile = new FileHandler();
+		assertTrue(ftpHandler.uploadFile(tempFile.createFile("./teste1.txt", "testeteste"), "teste1.txt"));
+		assertTrue(ftpHandler.uploadFile(tempFile.createFile("./teste2.txt", "opa"), "teste2.txt"));		
+		//renaming...
+        assertTrue(ftpHandler.renameFtpFile("teste1.txt", "teste2.txt", "/"));
+        
+        //check sizes
+        assertEquals(3, ftpHandler.getFileSize("teste1.txt"));
+        assertEquals(10, ftpHandler.getFileSize("teste2.txt"));
+        
         assertTrue(ftpHandler.closeConnection());
 	}
 }
