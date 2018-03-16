@@ -1,3 +1,6 @@
+/**
+ * @author Bruno Cardoso Cantisano
+ */
 package org.jenkinsci.plugins.ftpRename;
 import com.google.common.base.Strings;
 import hudson.AbortException;
@@ -32,7 +35,6 @@ import java.io.IOException;
  * <p>
  * When a build is performed, the {@link #perform} method will be invoked. 
  *
- * @author Bruno Cardoso Cantisano
  */
 public class FtpRenameBuilder extends Builder implements SimpleBuildStep {
     private String artifactName = "";
@@ -43,7 +45,6 @@ public class FtpRenameBuilder extends Builder implements SimpleBuildStep {
 	/**
      * Fields in config.jelly must match the parameter names in the "DataBoundConstructor"
      *
-     * @author Bruno Cardoso Cantisano
      * @param ftpServer serverhost
 	 * @param ftpPort server port
      * @param ftpUser username

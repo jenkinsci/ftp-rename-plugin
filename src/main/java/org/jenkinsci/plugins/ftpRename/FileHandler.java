@@ -1,3 +1,6 @@
+/**
+ * @author Bruno Cardoso Cantisano
+ */
 package org.jenkinsci.plugins.ftpRename;
 import java.io.BufferedWriter;
 import java.io.File;

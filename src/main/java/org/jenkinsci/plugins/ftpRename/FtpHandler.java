@@ -1,3 +1,6 @@
+/**
+ * @author Bruno Cardoso Cantisano
+ */
 package org.jenkinsci.plugins.ftpRename;
 
 import java.io.File;
@@ -20,7 +23,6 @@ public class FtpHandler {
 	/**
      * Open Connection Method.
      *
-     * @author Bruno Cardoso Cantisano
      * @param ftpServer server
      * @param ftpPort ftp port
      * @param ftpUser user
@@ -53,7 +55,6 @@ public class FtpHandler {
 	/**
      * Change directory Method.
      *
-     * @author Bruno Cardoso Cantisano
      * @param pathFtp path ftp server
      */
     public boolean changeDirectory(String pathFtp){
@@ -69,7 +70,6 @@ public class FtpHandler {
 	/**
      * Change directory Method.
      *
-     * @author Bruno Cardoso Cantisano
      * @param pathFile path file
      */
     public boolean fileExists(String pathFile){
@@ -127,7 +127,6 @@ public class FtpHandler {
     /**
      * Rename file Method.
      *
-     * @author Bruno Cardoso Cantisano
      * @param artifactName String - path old filename.
      * @param newArtifactName String - path new filename.
      * @param ftpDirectory String - default path in the ftp server.
@@ -171,7 +170,6 @@ public class FtpHandler {
     /**
      * Close Connection Method.
      *
-     * @author Bruno Cardoso Cantisano
      * @return close connection was succeed or had an error
      */
     public boolean closeConnection(){
