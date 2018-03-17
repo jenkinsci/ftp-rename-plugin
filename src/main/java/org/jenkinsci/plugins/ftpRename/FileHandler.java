@@ -2,22 +2,25 @@
  * @author Bruno Cardoso Cantisano
  */
 package org.jenkinsci.plugins.ftpRename;
-import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileWriter;
+import java.io.FileOutputStream;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
 public class FileHandler {
 	
 	public FileHandler() {
 		
 	}
 	public File createFile(String name, String text){
-		BufferedWriter writer = null;
+		OutputStreamWriter writer = null;
 		File file = null;
 	    try {
 	        //create a temporary file
 	        file = new File(name);
-	        writer = new BufferedWriter(new FileWriter(file));
-	        writer.write(text);
+	        writer = new OutputStreamWriter(new FileOutputStream(file), "UTF-8");
+	        PrintWriter pw = new PrintWriter(writer);
+	        pw.println(text);
+	        pw.close();	       	       
 	    } catch (Exception e) {
 	        e.printStackTrace();	        
 	    } finally {

@@ -84,26 +84,27 @@ public class FtpHandler {
     
     public boolean uploadFile(File localFile, String remoteFile) {
     	boolean completed = false;
+    	InputStream inputStream = null;
+    	OutputStream outputStream = null;
     	try {
         	ftp.setFileType(FTP.BINARY_FILE_TYPE);
-        	InputStream inputStream = new FileInputStream(localFile);
-        	OutputStream outputStream = ftp.storeFileStream(remoteFile);
+        	inputStream = new FileInputStream(localFile);
+        	outputStream = ftp.storeFileStream(remoteFile);
         	byte[] bytesIn = new byte[4096];
         	int read = 0;
         	while ((read = inputStream.read(bytesIn)) != -1) {
         	    outputStream.write(bytesIn, 0, read);
         	}
+        	completed = ftp.completePendingCommand();
         	inputStream.close();
         	outputStream.close();
-
-        	completed = ftp.completePendingCommand();
+        	
+        	//The file was uploaded successfully.
+        	completed = true;
     	}
     	catch(Exception e) {
-    		return false;	
-    	}   
-    	//The file was uploaded successfully.
-    	if (completed) return true;
-    	else return false;
+    	}
+    	return completed;
     }
     public long getFileSize(String remoteFile) {
 	   long fileSize = 0;
