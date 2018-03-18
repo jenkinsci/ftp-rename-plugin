@@ -94,15 +94,14 @@ public class FtpHandler {
         	int read = 0;
         	while ((read = inputStream.read(bytesIn)) != -1) {
         	    outputStream.write(bytesIn, 0, read);
-        	}
-        	completed = ftp.completePendingCommand();
+        	}        	
         	inputStream.close();
         	outputStream.close();
-        	
         	//The file was uploaded successfully.
-        	completed = true;
+        	completed = ftp.completePendingCommand();
     	}
     	catch(Exception e) {
+    		
     	}
     	return completed;
     }

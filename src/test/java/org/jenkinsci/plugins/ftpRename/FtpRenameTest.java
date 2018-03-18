@@ -69,15 +69,22 @@ public class FtpRenameTest {
 		assertTrue(ftpHandler.changeDirectory("/"));
 		
 		FileHandler tempFile = new FileHandler();
-		assertTrue(ftpHandler.uploadFile(tempFile.createFile("./teste1.txt", "testeteste"), "teste1.txt"));
-		assertTrue(ftpHandler.uploadFile(tempFile.createFile("./teste2.txt", "opa"), "teste2.txt"));		
+		File file1 = tempFile.createFile("./teste1.txt", "testeteste");
+		File file2 = tempFile.createFile("./teste2.txt", "opa");
+		
+		assertTrue(ftpHandler.uploadFile(file1, "teste1.txt"));
+		assertTrue(ftpHandler.uploadFile(file2, "teste2.txt"));
 		//renaming...
         assertTrue(ftpHandler.renameFtpFile("teste1.txt", "teste2.txt", "/"));
         
         //check sizes
-        assertEquals(3, ftpHandler.getFileSize("teste1.txt"));
-        assertEquals(10, ftpHandler.getFileSize("teste2.txt"));
+        assertEquals(5, ftpHandler.getFileSize("teste1.txt"));
+        assertEquals(12, ftpHandler.getFileSize("teste2.txt"));
         
+        //removing local files
+        assertTrue(file1.delete());
+        assertTrue(file2.delete());
+                
         assertTrue(ftpHandler.closeConnection());
 	}
 }
