@@ -94,15 +94,27 @@ public class FtpHandler {
         	int read = 0;
         	while ((read = inputStream.read(bytesIn)) != -1) {
         	    outputStream.write(bytesIn, 0, read);
-        	}        	
-        	inputStream.close();
-        	outputStream.close();
-        	//The file was uploaded successfully.
-        	completed = ftp.completePendingCommand();
+        	}
     	}
-    	catch(Exception e) {
-    		
+    	catch(Exception e1) {
+    		completed = false;
     	}
+    	finally {
+    		try {
+                if (inputStream != null) {
+                	inputStream.close();
+                }
+
+                if (outputStream != null) {
+                	outputStream.close();
+                }                
+            	//The file was uploaded successfully.
+            	completed = ftp.completePendingCommand();
+    		}
+    		catch(Exception e2) {
+    			completed=false;
+    		}
+        }
     	return completed;
     }
     public long getFileSize(String remoteFile) {
