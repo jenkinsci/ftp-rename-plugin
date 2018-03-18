@@ -5,6 +5,7 @@ package org.jenkinsci.plugins.ftpRename;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -96,7 +97,10 @@ public class FtpHandler {
         	    outputStream.write(bytesIn, 0, read);
         	}
     	}
-    	catch(Exception e1) {
+    	catch(FileNotFoundException e1) {
+    		completed = false;
+    	}
+    	catch(IOException e1) {
     		completed = false;
     	}
     	finally {
