@@ -52,9 +52,9 @@
 	</dependencies>
 	<scm>
 	    <connection>scm:git:ssh://github.com/jenkinsci/${project.artifactId}-plugin.git</connection>
-        <developerConnection>scm:git:ssh://git@github.com/jenkinsci/${project.artifactId}-plugin.git</developerConnection>  
-		<url>https://github.com/jenkinsci/${project.artifactId}-plugin</url>
-  </scm>
+            <developerConnection>scm:git:ssh://git@github.com/jenkinsci/${project.artifactId}-plugin.git</developerConnection>  
+	    <url>https://github.com/jenkinsci/${project.artifactId}-plugin</url>
+        </scm>
 	<repositories>
 		<repository>
 			<id>repo.jenkins-ci.org</id>
@@ -67,4 +67,15 @@
 			<url>http://repo.jenkins-ci.org/public/</url>
 		</pluginRepository>
 	</pluginRepositories>
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-release-plugin</artifactId>
+					<version>2.5.3</version>                
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
 </project>
