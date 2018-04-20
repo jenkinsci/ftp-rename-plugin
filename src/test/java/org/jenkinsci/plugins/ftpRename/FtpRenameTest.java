@@ -76,8 +76,8 @@ public class FtpRenameTest {
         assertTrue(ftpHandler.renameFtpFile("teste1.txt", "teste2.txt", "/"));
 
         //check sizes
-        assertEquals(4, ftpHandler.getFileSize("teste1.txt"));
-        assertEquals(11, ftpHandler.getFileSize("teste2.txt"));
+        assertEquals(3, ftpHandler.getFileSize("teste1.txt"));
+        assertEquals(10, ftpHandler.getFileSize("teste2.txt"));
 
         //removing local files
         assertTrue(file1.delete());
