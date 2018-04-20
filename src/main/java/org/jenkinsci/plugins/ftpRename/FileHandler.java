@@ -19,7 +19,7 @@ public class FileHandler {
 	        file = new File(name);
 	        writer = new OutputStreamWriter(new FileOutputStream(file), "UTF-8");
 	        PrintWriter pw = new PrintWriter(writer);
-	        pw.println(text);
+	        pw.print(text);
 	        pw.close();	       	       
 	    } catch (Exception e) {
 	        e.printStackTrace();	        
