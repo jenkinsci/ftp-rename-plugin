@@ -90,16 +90,6 @@
 
   </distributionManagement>
 
-  <modules>
-    <module>      
-    </module>
-  </modules>
-
-  <build>
-    <plugins>
-    </plugins>
-  </build>
-
   <repositories>
       <repository>
           <id>repo.jenkins-ci.org</id>
