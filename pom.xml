@@ -8,7 +8,7 @@
   </parent>
 
   <artifactId>ftp-rename</artifactId>
-  <version>1.2-SNAPSHOT</version>
+  <version>1.2</version>
   <packaging>pom</packaging>
   <name>FTP Rename Plugin</name>
   <description>Allows users to rename files remotely in ftp server</description>
@@ -73,7 +73,7 @@
   <scm>
     <connection>scm:git:https://github.com/jenkinsci/${project.artifactId}-plugin.git</connection>
     <developerConnection>scm:git:https://github.com/jenkinsci/${project.artifactId}-plugin.git</developerConnection>
-    <tag>HEAD</tag>
+    <tag>v1.2</tag>
   </scm>
 
   <distributionManagement>
