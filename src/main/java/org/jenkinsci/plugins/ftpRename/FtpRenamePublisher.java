@@ -1,6 +1,3 @@
-/**
- * @author Bruno Cardoso Cantisano
- */
 package org.jenkinsci.plugins.ftpRename;
 import com.google.common.base.Strings;
 import hudson.AbortException;
@@ -50,7 +47,7 @@ public class FtpRenamePublisher extends Notifier implements SimpleBuildStep {
      * Fields in config.jelly must match the parameter names in the "DataBoundConstructor"
      *
      * @param ftpServer serverhost
-	 * @param ftpPort server port
+	   * @param ftpPort server port
      * @param ftpUser username
      * @param ftpPassword password
      * @param ftpPath artifact path filename
