@@ -1,8 +1,19 @@
+/**
+ * @author Bruno Cardoso Cantisano
+ */
 package org.jenkinsci.plugins.ftpRename;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+
 import org.apache.commons.io.FilenameUtils;
+import org.apache.commons.net.ftp.FTP;
 import org.apache.commons.net.ftp.FTPClient;
+import org.apache.commons.net.ftp.FTPFile;
 import org.apache.commons.net.ftp.FTPReply;
 public class FtpHandler {
     private FTPClient ftp;
@@ -13,7 +24,6 @@ public class FtpHandler {
 	/**
      * Open Connection Method.
      *
-     * @author Bruno Cardoso Cantisano
      * @param ftpServer server
      * @param ftpPort ftp port
      * @param ftpUser user
@@ -46,7 +56,6 @@ public class FtpHandler {
 	/**
      * Change directory Method.
      *
-     * @author Bruno Cardoso Cantisano
      * @param pathFtp path ftp server
      */
     public boolean changeDirectory(String pathFtp){
@@ -62,7 +71,6 @@ public class FtpHandler {
 	/**
      * Change directory Method.
      *
-     * @author Bruno Cardoso Cantisano
      * @param pathFile path file
      */
     public boolean fileExists(String pathFile){
@@ -74,11 +82,67 @@ public class FtpHandler {
         }
 		return false;
     }
+    
+    public boolean uploadFile(File localFile, String remoteFile) {
+    	boolean completed = false;
+    	InputStream inputStream = null;
+    	OutputStream outputStream = null;
+    	try {
+        	ftp.setFileType(FTP.BINARY_FILE_TYPE);
+        	inputStream = new FileInputStream(localFile);
+        	outputStream = ftp.storeFileStream(remoteFile);
+        	byte[] bytesIn = new byte[4096];
+        	int read = 0;
+        	while ((read = inputStream.read(bytesIn)) != -1) {
+        	    outputStream.write(bytesIn, 0, read);
+        	}
+    	}
+    	catch(FileNotFoundException e1) {
+    		completed = false;
+    	}
+    	catch(IOException e1) {
+    		completed = false;
+    	}
+    	finally {
+    		try {
+                if (inputStream != null) {
+                	inputStream.close();
+                }
 
+                if (outputStream != null) {
+                	outputStream.close();
+                }                
+            	//The file was uploaded successfully.
+            	completed = ftp.completePendingCommand();
+    		}
+    		catch(Exception e2) {
+    			completed=false;
+    		}
+        }
+    	return completed;
+    }
+    public long getFileSize(String remoteFile) {
+	   long fileSize = 0;
+	   try {
+		   FTPFile[] files = ftp.listFiles(); //ftp list
+		   for ( int i = 0; i < files.length; i++)
+		   { //ftp connect forder in files              
+		      if (remoteFile.equals(files[i].getName()))
+		      { 
+		        fileSize = files[i].getSize();
+		        return fileSize;
+		      }
+		   }
+	   }
+	   catch(IOException e) {
+		   return fileSize;
+	   }
+
+	   return fileSize;
+    }
     /**
      * Rename file Method.
      *
-     * @author Bruno Cardoso Cantisano
      * @param artifactName String - path old filename.
      * @param newArtifactName String - path new filename.
      * @param ftpDirectory String - default path in the ftp server.
@@ -122,7 +186,6 @@ public class FtpHandler {
     /**
      * Close Connection Method.
      *
-     * @author Bruno Cardoso Cantisano
      * @return close connection was succeed or had an error
      */
     public boolean closeConnection(){

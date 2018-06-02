@@ -36,7 +36,6 @@ import java.io.IOException;
  * <p>
  * When a build is performed, the {@link #perform} method will be invoked. 
  *
- * @author Bruno Cardoso Cantisano
  */
 public class FtpRenamePublisher extends Notifier implements SimpleBuildStep {
     private String artifactName = "";
@@ -47,9 +46,8 @@ public class FtpRenamePublisher extends Notifier implements SimpleBuildStep {
 	/**
      * Fields in config.jelly must match the parameter names in the "DataBoundConstructor"
      *
-     * @author Bruno Cardoso Cantisano
      * @param ftpServer serverhost
-	 * @param ftpPort server port
+	   * @param ftpPort server port
      * @param ftpUser username
      * @param ftpPassword password
      * @param ftpPath artifact path filename
