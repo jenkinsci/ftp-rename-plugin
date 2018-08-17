@@ -57,6 +57,7 @@ public class FtpHandler {
      * Change directory Method.
      *
      * @param pathFtp path ftp server
+     * @return changing the directory was succeed or had an error
      */
     public boolean changeDirectory(String pathFtp){
         try {
@@ -72,6 +73,7 @@ public class FtpHandler {
      * Change directory Method.
      *
      * @param pathFile path file
+     * @return check if file exists was succeed or had an error
      */
     public boolean fileExists(String pathFile){
         try {
