@@ -1,43 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<parent>
-		<groupId>org.jenkins-ci.plugins</groupId>
-		<artifactId>plugin</artifactId>
-		<version>2.32</version>
-		<relativePath />
-	</parent>
-	<groupId>org.jenkins-ci.plugins</groupId>
-	<artifactId>ftp-rename</artifactId>
-	<version>1.3-SNAPSHOT</version>
-	<packaging>hpi</packaging>
-	<name>FTP Rename Plugin</name>
-	<description>Allows users to rename files remotely in ftp server</description>
-	<url>https://wiki.jenkins-ci.org/display/JENKINS/Ftp+Rename+Plugin</url>
-	<licenses>
-		<license>
-			<name>MIT License</name>
-			<url>https://opensource.org/licenses/MIT</url>
-		</license>
-	</licenses>
-	<developers>
-		<developer>
-			<id>bruno.cantisano</id>
-			<name>Bruno Cantisano</name>
-			<email>bruno.cantisano@gmail.com</email>
-		</developer>
-	</developers>
-	<dependencies>
-		<dependency>
-			<groupId>commons-net</groupId>
-			<artifactId>commons-net</artifactId>
-			<version>3.6</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.commons</groupId>
-			<artifactId>commons-lang3</artifactId>
-			<version>3.4</version>
-		</dependency>
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.jenkins-ci.plugins</groupId>
+        <artifactId>plugin</artifactId>
+        <version>2.32</version>
+        <relativePath />
+    </parent>
+    <groupId>org.jenkins-ci.plugins</groupId>
+    <artifactId>ftp-rename</artifactId>
+    <version>1.3-SNAPSHOT</version>
+    <packaging>hpi</packaging>
+    <name>FTP Rename Plugin</name>
+    <description>Allows users to rename files remotely in ftp server</description>
+    <url>https://wiki.jenkins-ci.org/display/JENKINS/Ftp+Rename+Plugin</url>
+    <licenses>
+        <license>
+            <name>MIT License</name>
+            <url>https://opensource.org/licenses/MIT</url>
+        </license>
+    </licenses>
+    <developers>
+        <developer>
+            <id>bruno.cantisano</id>
+            <name>Bruno Cantisano</name>
+            <email>bruno.cantisano@gmail.com</email>
+        </developer>
+    </developers>
+    <dependencies>
+        <dependency>
+            <groupId>commons-net</groupId>
+            <artifactId>commons-net</artifactId>
+            <version>3.6</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.4</version>
+        </dependency>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
@@ -64,41 +64,40 @@
             <artifactId>plexus-classworlds</artifactId>
             <version>2.4.2</version>
         </dependency>        
-		<dependency>
-			<groupId>com.fasterxml.jackson.core</groupId>
-			<artifactId>jackson-databind</artifactId>
-			<version>${jackson.version}</version>
-		</dependency>
-
-		<!-- dependencies on Jenkins Pipeline plugins -->
-		<dependency>
-			<groupId>org.jenkins-ci.plugins.workflow</groupId>
-			<artifactId>workflow-job</artifactId>
-			<version>1.14</version>
-		</dependency>
-		<dependency>
-			<groupId>org.jenkins-ci.plugins.workflow</groupId>
-			<artifactId>workflow-cps</artifactId>
-			<version>1.14</version>
-		</dependency>
-		<dependency>
-			<groupId>org.jenkins-ci.plugins.workflow</groupId>
-			<artifactId>workflow-step-api</artifactId>
-			<version>1.14</version>
-		</dependency>
-		<!-- writeFile is useful for test -->
-		<dependency>
-			<groupId>org.jenkins-ci.plugins.workflow</groupId>
-			<artifactId>workflow-basic-steps</artifactId>
-			<version>1.14</version>
-			<scope>test</scope>
-		</dependency>
-	</dependencies>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.9.7</version>
+        </dependency>
+        <!-- dependencies on Jenkins Pipeline plugins -->
+        <dependency>
+            <groupId>org.jenkins-ci.plugins.workflow</groupId>
+            <artifactId>workflow-job</artifactId>
+            <version>1.14</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jenkins-ci.plugins.workflow</groupId>
+            <artifactId>workflow-cps</artifactId>
+            <version>1.14</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jenkins-ci.plugins.workflow</groupId>
+            <artifactId>workflow-step-api</artifactId>
+            <version>1.14</version>
+        </dependency>
+        <!-- writeFile is useful for test -->
+        <dependency>
+            <groupId>org.jenkins-ci.plugins.workflow</groupId>
+            <artifactId>workflow-basic-steps</artifactId>
+            <version>1.14</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
     <scm>
-		<connection>scm:git:https://git@github.com/jenkinsci/${project.artifactId}-plugin.git</connection>
-		<developerConnection>scm:git:https://git@github.com/jenkinsci/${project.artifactId}-plugin.git</developerConnection>
-		<url>https://github.com/jenkinsci/${project.artifactId}-plugin</url>
-		<tag>v1.2</tag>
+        <connection>scm:git:https://git@github.com/jenkinsci/${project.artifactId}-plugin.git</connection>
+        <developerConnection>scm:git:https://git@github.com/jenkinsci/${project.artifactId}-plugin.git</developerConnection>
+        <url>https://github.com/jenkinsci/${project.artifactId}-plugin</url>
+        <tag>v1.2</tag>
     </scm>
     <issueManagement>
         <system>JIRA</system>
@@ -110,45 +109,42 @@
             <url>https://repo.jenkins-ci.org/releases</url>
         </repository>
     </distributionManagement>
-	<properties>
-		<!-- Baseline Jenkins version you use to build the plugin. Users must have this version or newer to
+    <properties>
+        <!-- Baseline Jenkins version you use to build the plugin. Users must have this version or newer to
     run. -->
-		<jenkins.version>1.651.2</jenkins.version>
-		<!-- Java Level to use. Java 7 required when using core >= 1.612 -->
-		<java.level>7</java.level>
-		<!-- Jenkins Test Harness version you use to test the plugin. -->
-		<!-- For Jenkins version >= 1.580.1 use JTH 2.x or higher. -->
-		<jenkins-test-harness.version>2.1</jenkins-test-harness.version>
-		<!-- Other properties you may want to use:
+        <jenkins.version>1.651.2</jenkins.version>
+        <!-- Java Level to use. Java 7 required when using core >= 1.612 -->
+        <java.level>7</java.level>
+        <!-- Jenkins Test Harness version you use to test the plugin. -->
+        <!-- For Jenkins version >= 1.580.1 use JTH 2.x or higher. -->
+        <jenkins-test-harness.version>2.1</jenkins-test-harness.version>
+        <!-- Other properties you may want to use:
              ~ hpi-plugin.version: The HPI Maven Plugin version used by the plugin..
              ~ stapler-plugin.version: The Stapler Maven plugin version required by the plugin.
         -->
-
-		<jackson.version>2.4.4</jackson.version>
-
-		<maven-compiler-plugin.version>3.0</maven-compiler-plugin.version>
-		<maven-source-plugin.version>2.2</maven-source-plugin.version>
-		<maven-jar-plugin.version>2.4</maven-jar-plugin.version>
-		<maven-release-plugin.version>2.5.1</maven-release-plugin.version>
-		<mycila-maven-license-plugin.version>1.10.b1</mycila-maven-license-plugin.version>
-
-		<header.basedir>${project.basedir}</header.basedir>
-	</properties>
-	<repositories>
-	    <repository>
-        	<id>repo.jenkins-ci.org</id>
-        	<url>https://repo.jenkins-ci.org/public/</url>
-    	</repository>
+        <jackson.version>2.4.4</jackson.version>
+        <maven-compiler-plugin.version>3.0</maven-compiler-plugin.version>
+        <maven-source-plugin.version>2.2</maven-source-plugin.version>
+        <maven-jar-plugin.version>2.4</maven-jar-plugin.version>
+        <maven-release-plugin.version>2.5.1</maven-release-plugin.version>
+        <mycila-maven-license-plugin.version>1.10.b1</mycila-maven-license-plugin.version>
+        <header.basedir>${project.basedir}</header.basedir>
+    </properties>
+    <repositories>
         <repository>
-			<id>releases</id>
-			<name>Releases</name>
-			<url>https://oss.sonatype.org/content/repositories/releases</url>
+            <id>repo.jenkins-ci.org</id>
+            <url>https://repo.jenkins-ci.org/public/</url>
         </repository>
-	</repositories>
-	<pluginRepositories>
-    	<pluginRepository>
-    	    <id>repo.jenkins-ci.org</id>
-        	<url>https://repo.jenkins-ci.org/public/</url>
-    	</pluginRepository>
-	</pluginRepositories>
+        <repository>
+            <id>releases</id>
+            <name>Releases</name>
+            <url>https://oss.sonatype.org/content/repositories/releases</url>
+        </repository>
+    </repositories>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>repo.jenkins-ci.org</id>
+            <url>https://repo.jenkins-ci.org/public/</url>
+        </pluginRepository>
+    </pluginRepositories>
 </project>
