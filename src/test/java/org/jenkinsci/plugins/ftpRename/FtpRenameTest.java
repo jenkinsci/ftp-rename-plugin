@@ -54,7 +54,7 @@ public class FtpRenameTest {
 
 	@Test
 	public void testChangeRemoteDirectory() {
-		assertTrue(ftpHandler.openConnection("ftp.dlptest.com", 21, "dlpuser@dlptest.com", "3D6XZV9MKdhM5fF", true));
+		assertTrue(ftpHandler.openConnection("ftp.dlptest.com", 21, "dlpuser@dlptest.com", "SzMf7rTE4pCrf9dV286GuNe4N", true));
 		assertTrue(ftpHandler.changeDirectory("/"));
 		assertTrue(ftpHandler.closeConnection());
 	}
@@ -65,7 +65,7 @@ public class FtpRenameTest {
      * https://dlptest.com/ftp-test/
 	 */
 	public void testRenameFile() {
-		assertTrue(ftpHandler.openConnection("ftp.dlptest.com", 21, "dlpuser@dlptest.com", "3D6XZV9MKdhM5fF", true));
+		assertTrue(ftpHandler.openConnection("ftp.dlptest.com", 21, "dlpuser@dlptest.com", "SzMf7rTE4pCrf9dV286GuNe4N", true));
 		assertTrue(ftpHandler.changeDirectory("/"));
 		FileHandler tempFile = new FileHandler();
 		File file1 = tempFile.createFile("./teste1.txt", "testeteste");

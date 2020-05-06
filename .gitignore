@@ -4,3 +4,5 @@
 /.settings
 /target
 /work
+.factorypath
+settings.json
