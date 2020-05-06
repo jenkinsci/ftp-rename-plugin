@@ -9,7 +9,7 @@
     </parent>
     <groupId>org.jenkins-ci.plugins</groupId>
     <artifactId>ftp-rename</artifactId>
-    <version>1.5-SNAPSHOT</version>
+    <version>1.4-SNAPSHOT</version>
     <packaging>hpi</packaging>
     <name>FTP Rename Plugin</name>
     <description>Allows users to rename files remotely in ftp server</description>
