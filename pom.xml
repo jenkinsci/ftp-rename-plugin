@@ -97,7 +97,6 @@
         <connection>scm:git:git@github.com:jenkinsci/${project.artifactId}-plugin.git</connection>
         <developerConnection>scm:git:git@github.com:jenkinsci/${project.artifactId}-plugin</developerConnection>
         <url>scm:git:git@github.com/jenkinsci/${project.artifactId}-plugin.git</url>
-        <tag>HEAD</tag>        
     </scm>
     <issueManagement>
         <system>JIRA</system>
