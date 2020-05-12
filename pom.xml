@@ -9,7 +9,7 @@
     </parent>
     <groupId>org.jenkins-ci.plugins</groupId>
     <artifactId>ftp-rename</artifactId>
-    <version>1.8-SNAPSHOT</version>
+    <version>1.7-SNAPSHOT</version>
     <packaging>hpi</packaging>
     <name>FTP Rename Plugin</name>
     <description>Allows users to rename files remotely in ftp server</description>
@@ -97,8 +97,7 @@
         <connection>scm:git:git@github.com:jenkinsci/${project.artifactId}-plugin.git</connection>
         <developerConnection>scm:git:git@github.com:jenkinsci/${project.artifactId}-plugin</developerConnection>
         <url>scm:git:git@github.com/jenkinsci/${project.artifactId}-plugin.git</url>
-      <tag>HEAD</tag>
-  </scm>
+    </scm>
     <issueManagement>
         <system>JIRA</system>
         <url>http://issues.jenkins-ci.org/</url>
