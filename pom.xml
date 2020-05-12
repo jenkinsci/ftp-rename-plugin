@@ -125,7 +125,7 @@
         <maven-compiler-plugin.version>3.0</maven-compiler-plugin.version>
         <maven-source-plugin.version>2.2</maven-source-plugin.version>
         <maven-jar-plugin.version>2.4</maven-jar-plugin.version>
-        <maven-release-plugin.version>2.5.1</maven-release-plugin.version>
+        <maven-release-plugin.version>2.5.3</maven-release-plugin.version>
         <mycila-maven-license-plugin.version>1.10.b1</mycila-maven-license-plugin.version>
         <header.basedir>${project.basedir}</header.basedir>
     </properties>
