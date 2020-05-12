@@ -8,7 +8,6 @@ import hudson.Launcher;
 import hudson.Extension;
 import hudson.FilePath;
 import hudson.model.AbstractProject;
-import hudson.model.Descriptor;
 import hudson.model.Run;
 import hudson.model.TaskListener;
 import hudson.tasks.Builder;
