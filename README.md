@@ -1,6 +1,8 @@
 # ftp rename plugin
 Jenkins plugin for ftp rename
 
+![Java_Jenkins_Plugin](java_jenkins_plugin.png)
+
 Automating a rename in a ftp server.
 
 # Usage
