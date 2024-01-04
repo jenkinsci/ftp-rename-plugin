@@ -6,6 +6,7 @@ Jenkins plugin for ftp rename
 [![Build Status](https://ci.jenkins.io/buildStatus/icon?job=Plugins/ftp-rename-plugin/master)](https://ci.jenkins.io/blue/organizations/jenkins/Plugins%2Fftp-rename-plugin/branches)
 [![MIT License](https://img.shields.io/github/license/jenkinsci/ftp-rename-plugin.svg)](LICENSE)
 [![javadoc](https://img.shields.io/badge/javadoc-available-brightgreen.svg)](https://javadoc.jenkins.io/plugin/ftp-rename-plugin/)
+<a href='https://ko-fi.com/brunocantisano' target='_blank'><img height='15' style='border:0px;height:26px;' src='https://az743702.vo.msecnd.net/cdn/kofi3.png?v=0' border='0' alt='Buy Me a Coffee at ko-fi.com' />
 
 [Jenkins](https://jenkins.io/) plugin for [FTP Rename](https://msdn.microsoft.com/en-us/library/hh127509.aspx) builder
 
